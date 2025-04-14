@@ -1,11 +1,11 @@
 .. _use-cases:
 
-Use Cases and Methods Combination
+USE CASES AND METHODS COMBINATION
 =================================
 
 The methods can be combined for a more efficient search.
 
-Searching for User's Connections with Categorization by Relationship Type
+SEARCHING FOR USER'S CONNECTIONS WITH CATEGORIZATION BY RELATIONSHIP TYPE
 -------------------------------------------------------------------------
 
 Learning the connections of a social media user can be necessary in different use cases — crimes investigation, background checks, KYC, fraud prevention. For more efficient search for related users, we at Social Links have combined several methods to quickly create a schema of relationships for any user of interest.
@@ -17,7 +17,7 @@ As input we are given a profile of the user of interest, and as output we get re
 Here is an example of part of the result of such a technique:
 
 .. code-block:: json
-    
+
     {
         "id": "100002044080395",
         "name": "Yana Djachenko",
@@ -100,7 +100,7 @@ Here is an example of part of the result of such a technique:
 
 To get access to this method, please, read the :ref:`support` page.
 
-Searching for Social Media Profiles with the Same Profile Picture and Name
+SEARCHING FOR SOCIAL MEDIA PROFILES WITH THE SAME PROFILE PICTURE AND NAME
 --------------------------------------------------------------------------
 
 Face recognition techniques are extremely important in many cases, such as KYC and general background checks. To make face searches more effective, you can combine face and name searches.
@@ -113,7 +113,7 @@ Next, compare the profile photos in these results with the original photo you ha
 
 See the source code of the script in the `GitHub repository <https://github.com/SocialLinks-IO/sociallinks-api?tab=readme-ov-file#search-by-face-and-name>`_.
 
-Analyzing Social Media Posts
+ANALYZING SOCIAL MEDIA POSTS
 ----------------------------
 
 Effective social media analysis is essential for gaining quick access to structured insights, supporting a variety of use cases — from brand protection to VIP monitoring or gaining situational awareness and performing narrative analysis.

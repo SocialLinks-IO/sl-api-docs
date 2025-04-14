@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Use Cases and Methods Combination &mdash; SL API  documentation</title>
+  <title>USE CASES AND METHODS COMBINATION &mdash; SL API  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=476ad3d5" />
@@ -20,8 +20,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Frequently Asked Questions" href="faq.html" />
-    <link rel="prev" title="Methods Examples" href="methods-examples.html" /> 
+    <link rel="next" title="FREQUENTLY ASKED QUESTIONS" href="faq.html" />
+    <link rel="prev" title="METHODS EXAMPLES" href="methods-examples.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,18 +46,18 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structure-of-requests.html">Structure of requests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage-of-parameters.html">Usage of Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methods-examples.html">Methods Examples</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Use Cases and Methods Combination</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#searching-for-user-s-connections-with-categorization-by-relationship-type">Searching for User’s Connections with Categorization by Relationship Type</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#searching-for-social-media-profiles-with-the-same-profile-picture-and-name">Searching for Social Media Profiles with the Same Profile Picture and Name</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#analyzing-social-media-posts">Analyzing Social Media Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">QUICK START</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-requests.html">STRUCTURE OF REQUESTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage-of-parameters.html">USAGE OF PARAMETERS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methods-examples.html">METHODS EXAMPLES</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">USE CASES AND METHODS COMBINATION</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#searching-for-user-s-connections-with-categorization-by-relationship-type">SEARCHING FOR USER’S CONNECTIONS WITH CATEGORIZATION BY RELATIONSHIP TYPE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#searching-for-social-media-profiles-with-the-same-profile-picture-and-name">SEARCHING FOR SOCIAL MEDIA PROFILES WITH THE SAME PROFILE PICTURE AND NAME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analyzing-social-media-posts">ANALYZING SOCIAL MEDIA POSTS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FREQUENTLY ASKED QUESTIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">SUPPORT</a></li>
 </ul>
 
         </div>
@@ -74,7 +74,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Use Cases and Methods Combination</li>
+      <li class="breadcrumb-item active">USE CASES AND METHODS COMBINATION</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -84,10 +84,10 @@
            <div itemprop="articleBody">
              
   <section id="use-cases-and-methods-combination">
-<span id="use-cases"></span><h1>Use Cases and Methods Combination<a class="headerlink" href="#use-cases-and-methods-combination" title="Link to this heading"></a></h1>
+<span id="use-cases"></span><h1>USE CASES AND METHODS COMBINATION<a class="headerlink" href="#use-cases-and-methods-combination" title="Link to this heading"></a></h1>
 <p>The methods can be combined for a more efficient search.</p>
 <section id="searching-for-user-s-connections-with-categorization-by-relationship-type">
-<h2>Searching for User’s Connections with Categorization by Relationship Type<a class="headerlink" href="#searching-for-user-s-connections-with-categorization-by-relationship-type" title="Link to this heading"></a></h2>
+<h2>SEARCHING FOR USER’S CONNECTIONS WITH CATEGORIZATION BY RELATIONSHIP TYPE<a class="headerlink" href="#searching-for-user-s-connections-with-categorization-by-relationship-type" title="Link to this heading"></a></h2>
 <p>Learning the connections of a social media user can be necessary in different use cases — crimes investigation, background checks, KYC, fraud prevention. For more efficient search for related users, we at Social Links have combined several methods to quickly create a schema of relationships for any user of interest.</p>
 <p>This technique recursively searches for a user’s connections, which provides complete information about the user’s relationships with other users and is especially useful when the user has hidden connections.</p>
 <p>As input we are given a profile of the user of interest, and as output we get related users, each of which is assigned an index of the nature of the relationship with the user of interest. The method returns a list of linked users consisting of commenters, likers, reposters and authors from posts, photos, videos and comments in which the user of interest has been tagged or published. In addition to the user’s connections, you will get photos, videos, posts, groups, tags, pages, and profile information.</p>
@@ -172,10 +172,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>To get access to this method, please, read the <a class="reference internal" href="support.html#support"><span class="std std-ref">Support</span></a> page.</p>
+<p>To get access to this method, please, read the <a class="reference internal" href="support.html#support"><span class="std std-ref">SUPPORT</span></a> page.</p>
 </section>
 <section id="searching-for-social-media-profiles-with-the-same-profile-picture-and-name">
-<h2>Searching for Social Media Profiles with the Same Profile Picture and Name<a class="headerlink" href="#searching-for-social-media-profiles-with-the-same-profile-picture-and-name" title="Link to this heading"></a></h2>
+<h2>SEARCHING FOR SOCIAL MEDIA PROFILES WITH THE SAME PROFILE PICTURE AND NAME<a class="headerlink" href="#searching-for-social-media-profiles-with-the-same-profile-picture-and-name" title="Link to this heading"></a></h2>
 <p>Face recognition techniques are extremely important in many cases, such as KYC and general background checks. To make face searches more effective, you can combine face and name searches.</p>
 <p>This technique is straightforward: first, conduct a general search by name or alias across social media platforms. This step will yield a list of potential matches, even if the name is not exactly the same — because many social media platforms use fuzzy search.</p>
 <p>Next, compare the profile photos in these results with the original photo you have. This process doesn’t require access to a biometric database — just a name and a picture. As a result, you’ll get a list of matched accounts.</p>
@@ -183,7 +183,7 @@
 <p>See the source code of the script in the <a class="reference external" href="https://github.com/SocialLinks-IO/sociallinks-api?tab=readme-ov-file#search-by-face-and-name">GitHub repository</a>.</p>
 </section>
 <section id="analyzing-social-media-posts">
-<h2>Analyzing Social Media Posts<a class="headerlink" href="#analyzing-social-media-posts" title="Link to this heading"></a></h2>
+<h2>ANALYZING SOCIAL MEDIA POSTS<a class="headerlink" href="#analyzing-social-media-posts" title="Link to this heading"></a></h2>
 <p>Effective social media analysis is essential for gaining quick access to structured insights, supporting a variety of use cases — from brand protection to VIP monitoring or gaining situational awareness and performing narrative analysis.</p>
 <p>The main use cases include:</p>
 <ul class="simple">
@@ -202,8 +202,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="methods-examples.html" class="btn btn-neutral float-left" title="Methods Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="methods-examples.html" class="btn btn-neutral float-left" title="METHODS EXAMPLES" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="faq.html" class="btn btn-neutral float-right" title="FREQUENTLY ASKED QUESTIONS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

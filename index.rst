@@ -16,13 +16,13 @@ Provide methods for extracting data from over 500 public sources for many differ
 To get access or support, please, read the :ref:`support` page.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+    :maxdepth: 2
+    :caption: Contents:
 
-   quick-start
-   structure-of-requests
-   usage-of-parameters
-   methods-examples
-   use-cases
-   faq
-   support
+    quick-start
+    structure-of-requests
+    usage-of-parameters
+    methods-examples
+    use-cases
+    faq
+    support

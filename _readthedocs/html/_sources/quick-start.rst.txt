@@ -1,6 +1,6 @@
 .. _quick-start:
 
-Quick Start
+QUICK START
 ===========
 
 To get started with Social Links API, you need to follow the 3 steps below:
@@ -10,18 +10,18 @@ To get started with Social Links API, you need to follow the 3 steps below:
 
 .. code-block:: bash
 
-   curl 'https://{DOMAIN}/api/stats' -H 'Authorization: {Your API Key}'
+    curl 'https://{DOMAIN}/api/stats' -H 'Authorization: {Your API Key}'
 
 3. If you receive a response with a following structure, it indicates that everything is functioning properly:
 
 .. code-block:: json
 
-   {
-      "plan": "...",
-      "expires": "20XX-01-01T00:00:00",
-      "throttling": [],
-      "points": 100000,
-      "message": ""
-   }
+    {
+        "plan": "...",
+        "expires": "20XX-01-01T00:00:00",
+        "throttling": [],
+        "points": 100000,
+        "message": ""
+    }
 
 Read more about the possible requests in the :ref:`methods-examples` page.
