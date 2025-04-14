@@ -19,10 +19,10 @@ Here is an example of part of the result of such a technique:
 .. code-block:: json
 
     {
-        "id": "100002044080395",
-        "name": "Yana Djachenko",
-        "url": "https://{domain}/jana.djachenk",
-        "alias": "jana.djachenk",
+        "id": "XXXXXXXXXXXXXXX",
+        "name": "Jane Dou",
+        "url": "https://{domain}/jane.dou",
+        "alias": "jane.dou",
         "photo": "",
         "is_page": false,
         "category": "",
@@ -34,22 +34,22 @@ Here is an example of part of the result of such a technique:
             "with"
         ],
         "connection_photos": {
-            "10202451179037294": {
+            "XXXXXXXXXXXXXXXXX": {
                 "with": [
-                    1483702814
+                    0000000000
                 ]
             },
-            "814657788698701": {
+            "XXXXXXXXXXXXXXX": {
                 "with": [
-                    1494914810
+                    0000000000
                 ]
             }
         }
     },
     {
-        "id": "830011384",
-        "name": "Inna Davidenko",
-        "url": "https://{domain}/830011384",
+        "id": "XXXXXXXXX",
+        "name": "Jane Dou",
+        "url": "https://{domain}/XXXXXXXXX",
         "alias": "",
         "photo": "{link}",
         "is_page": false,
@@ -61,26 +61,26 @@ Here is an example of part of the result of such a technique:
             "with"
         ],
         "connection_photos": {
-            "814657788698701": {
+            "XXXXXXXXXXXXXXX": {
                 "with": [
-                    1494914810
+                    0000000000
                 ]
             }
         },
         "connection_posts": {
-            "814657788698701": {
+            "XXXXXXXXXXXXXXX": {
                 "with": [
-                    1494914810
+                    0000000000
                 ]
             }
         }
     },
     {
-        "id": "1506516798",
-        "name": "Oksana Kobets",
-        "alias": "oksana.kryvenko",
+        "id": "XXXXXXXXXX",
+        "name": "Jane Dou",
+        "alias": "jane.dou",
         "profile-image": "{link}",
-        "url": "https://{domain}/oksana.kryvenko",
+        "url": "https://{domain}/jane.dou",
         "reaction_type": "Like",
         "score": 12,
         "connection_types": [
@@ -88,10 +88,10 @@ Here is an example of part of the result of such a technique:
             "with"
         ],
         "connection_posts": {
-            "1206867989362420": {
+            "XXXXXXXXXXXXXXXX": {
                 "reaction": [],
                 "with": [
-                    1488366299
+                    0000000000
                 ]
             }
         }
