@@ -1,0 +1,72 @@
+.. _methods-examples:
+
+Methods Examples
+================
+
+.. note::
+
+    To get access to a full list of methods, please, read the :ref:`support-page-anchor` page.
+
+Search in Sources by Alias (≈3000 sites)
+----------------------------------------
+
+Users often have the same alias on different platforms. This method, having an alias, finds users on different websites who use the same alias.
+
+
+In the example above, let’s find pages on different resources that use the alias `elonmusk` by limiting the number of results to `7` (`limit=7`) and the execution time to `110` seconds (`timeout=110`): 
+
+
+.. code-block:: bash
+
+   # Search for accounts:
+   # - with alias "elonmusk"
+   # - limit to 7 results
+   # - timeout after 110 seconds
+   curl 'https://{DOMAIN}/maigret_search?query=elonmusk&limit=7&timeout=110' --header 'Authorization: {API Key}'
+
+.. image:: media/1.gif
+
+
+SL ISE Search Emails with Similar Password by Email
+---------------------------------------------------
+
+The characteristic of a user having similar or identical passwords allows different accounts of the same user to be obtained. This method is used to find other POI's email addresses. By having a POI's email address, you will be able to find other emails that have similar passwords.
+
+
+In the given example, let’s find e-mail addresses that have similar passwords to the address `alex@gmail.com` and `limit` the number of results in the output to seven by setting the limit parameter equal to `5`:
+
+.. code-block:: bash
+
+   # Search for email addresses that:
+   # - have similar passwords to passwords in leak records for alex@gmail.com
+   # - limited to 5 results
+   curl 'https://{DOMAIN}/emailpass/email_passwords_emails?query=alex%40gmail.com&limit=5' --header 'Authorization: {API Key}'
+
+.. image:: media/2.gif
+
+
+Twitter Advanced Search Posts
+-----------------------------
+
+This method allows you to search Twitter user posts using multiple parameters at once.
+It is not necessary to fill in all fields, you can filter by only some parameters (according to the social network's logic).
+
+Take a look at the example on our public GitHub repository as well: `Analyze Social Media Posts <https://github.com/SocialLinks-IO/sociallinks-api?tab=readme-ov-file#analyze-social-media-posts>`_.
+
+
+This method allows you to search Twitter user's posts by several parameters at once. Let's find posts of account `nytimes` (`query=nytimes`) which contain the words `Syria` or `China` (`these_words=Syria%20China`), in English (`lang=en`), with at least `10` replies (`min_replies=10`), `2` likes (`min_faves=2`), `10` retweets (`min_retweets=10`), and published between `August 25` (`from_date=2024-08-25`) and `December 16` (`to_date=2024-12-16`) of `2024`. We will also sort the result by showing the most latest publications first (`sort=Latest`). Limit the number of results to `5` (`limit=5`) and the response time to `50` seconds (`timeout=50`):
+
+.. code-block:: bash
+
+   # Search for tweets:
+   # - containing "nytimes"
+   # - with words "Syria" or "China"
+   # - in English language
+   # - with at least 10 replies
+   # - with at least 2 likes
+   # - with at least 10 retweets
+   # - posted between August 25, 2024 and December 16, 2024
+   # - sorted by latest first
+   # - limited to 5 results
+   # - with 50 second timeout
+   curl 'https://{DOMAIN}/twitter_v2/search/tweets?query=nytimes&these_words=Syria%20China&lang=en&min_replies=10&min_faves=2&min_retweets=10&from_date=2024-08-25&to_date=2024-12-16&sort=Latest&limit=5&timeout=50' --header 'Authorization: {API Key}'

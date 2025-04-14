@@ -1,0 +1,105 @@
+.wy-side-nav-search, .wy-nav-top, .wy-nav-side, .wy-nav-content, .wy-body-for-nav, .wy-nav-content-wrap {
+    background: #000000;
+}
+
+.wy-nav-content a.reference.internal {
+    color: #30D9B7;
+}
+
+.wy-nav-content a.reference.external {
+    color: #30D9B7;
+}
+
+.wy-menu-vertical a {
+    color: #ffffff;
+}
+
+.wy-menu-vertical li.current>a, .wy-menu-vertical li.on a {
+    color: #000000;
+    background: #ffffff;
+}
+
+.rst-content code, .rst-content tt, code {
+    background: #2d2d2d;
+    border: none;
+}
+
+.rst-content code.literal, .rst-content tt.literal {
+    color: #ffffff;
+}
+
+.wy-side-scroll .caption-text {
+    color: #30d9b7;
+}
+
+.wy-nav-content .icon-home {
+    color: #ffffff;
+}
+
+.btn-neutral, .btn-neutral:visited {
+    background-color: #30D9B7 !important;
+}
+
+.wy-menu a:active {
+    background-color: #30D9B7;
+}
+
+.highlight, .highlight pre {
+    border: none !important;
+    background-color: #17181c;
+}
+
+.rst-content div[class^=highlight], .rst-content pre.literal-block {
+    border: none;
+}
+
+.highlight .s1 {
+    color: #30D9B7;
+}
+
+.highlight .s2 {
+    color: #30D9B7;
+}
+
+.highlight .nt {
+    color: #ccb350;
+}
+
+.highlight .mi {
+    color: #979797;
+}
+
+.highlight .c1 {
+    color: #979797;
+    font-style: italic;
+}
+
+.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td, .wy-table-backed, .wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td {
+    background-color: transparent;
+}
+
+.rst-content table.docutils thead, .rst-content table.field-list thead, .wy-table thead {
+    color: #ffffff;
+}
+
+/* fonts */
+
+@font-face {
+    font-family: 'League Spartan'; 
+    src: url('fonts/League_Spartan/LeagueSpartan-Black.ttf') format('truetype'), 
+}
+
+@font-face {
+    font-family: 'Questrial';
+    src: url('fonts/Questrial/Questrial-Regular.ttf') format('truetype'), 
+}
+
+body {
+    font-family: 'Questrial';
+    color: #ffffff;
+}
+
+h1, h2, h3 {
+    font-family: 'League Spartan';
+    color: #ffffff;
+}

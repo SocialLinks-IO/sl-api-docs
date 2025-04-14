@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Use Cases and Methods Combination &mdash; SL API  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=476ad3d5" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Frequently Asked Questions" href="faq.html" />
+    <link rel="prev" title="Methods Examples" href="methods-examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-requests.html">Structure of requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage-of-parameters.html">Usage of Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methods-examples.html">Methods Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Use Cases and Methods Combination</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#searching-for-user-s-connections-with-categorization-by-relationship-type">Searching for User’s Connections with Categorization by Relationship Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#searching-for-social-media-profiles-with-the-same-profile-picture-and-name">Searching for Social Media Profiles with the Same Profile Picture and Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analyzing-social-media-posts">Analyzing Social Media Posts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SL API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Use Cases and Methods Combination</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="use-cases-and-methods-combination">
+<span id="use-cases"></span><h1>Use Cases and Methods Combination<a class="headerlink" href="#use-cases-and-methods-combination" title="Link to this heading"></a></h1>
+<p>The methods can be combined for a more efficient search.</p>
+<section id="searching-for-user-s-connections-with-categorization-by-relationship-type">
+<h2>Searching for User’s Connections with Categorization by Relationship Type<a class="headerlink" href="#searching-for-user-s-connections-with-categorization-by-relationship-type" title="Link to this heading"></a></h2>
+<p>Learning the connections of a social media user can be necessary in different use cases — crimes investigation, background checks, KYC, fraud prevention. For more efficient search for related users, we at Social Links have combined several methods to quickly create a schema of relationships for any user of interest.</p>
+<p>This technique recursively searches for a user’s connections, which provides complete information about the user’s relationships with other users and is especially useful when the user has hidden connections.</p>
+<p>As input we are given a profile of the user of interest, and as output we get related users, each of which is assigned an index of the nature of the relationship with the user of interest. The method returns a list of linked users consisting of commenters, likers, reposters and authors from posts, photos, videos and comments in which the user of interest has been tagged or published. In addition to the user’s connections, you will get photos, videos, posts, groups, tags, pages, and profile information.</p>
+<p>Here is an example of part of the result of such a technique:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100002044080395&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yana Djachenko&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://{domain}/jana.djachenk&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jana.djachenk&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;photo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;is_page&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;is_verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;profile&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;is_author&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;connection_types&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;with&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;connection_photos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;10202451179037294&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;with&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">1483702814</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;814657788698701&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;with&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">1494914810</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;830011384&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Inna Davidenko&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://{domain}/830011384&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;photo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{link}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;is_page&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;is_verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;profile&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;connection_types&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;with&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;connection_photos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;814657788698701&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;with&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">1494914810</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;connection_posts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;814657788698701&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;with&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">1494914810</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1506516798&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Oksana Kobets&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oksana.kryvenko&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;profile-image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{link}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://{domain}/oksana.kryvenko&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;reaction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Like&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;connection_types&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;reaction&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;with&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;connection_posts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;1206867989362420&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;reaction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;with&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">1488366299</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To get access to this method, please, read the <a class="reference internal" href="support.html#support"><span class="std std-ref">Support</span></a> page.</p>
+</section>
+<section id="searching-for-social-media-profiles-with-the-same-profile-picture-and-name">
+<h2>Searching for Social Media Profiles with the Same Profile Picture and Name<a class="headerlink" href="#searching-for-social-media-profiles-with-the-same-profile-picture-and-name" title="Link to this heading"></a></h2>
+<p>Face recognition techniques are extremely important in many cases, such as KYC and general background checks. To make face searches more effective, you can combine face and name searches.</p>
+<p>This technique is straightforward: first, conduct a general search by name or alias across social media platforms. This step will yield a list of potential matches, even if the name is not exactly the same — because many social media platforms use fuzzy search.</p>
+<p>Next, compare the profile photos in these results with the original photo you have. This process doesn’t require access to a biometric database — just a name and a picture. As a result, you’ll get a list of matched accounts.</p>
+<img alt="_images/usecase1.gif" src="_images/usecase1.gif" />
+<p>See the source code of the script in the <a class="reference external" href="https://github.com/SocialLinks-IO/sociallinks-api?tab=readme-ov-file#search-by-face-and-name">GitHub repository</a>.</p>
+</section>
+<section id="analyzing-social-media-posts">
+<h2>Analyzing Social Media Posts<a class="headerlink" href="#analyzing-social-media-posts" title="Link to this heading"></a></h2>
+<p>Effective social media analysis is essential for gaining quick access to structured insights, supporting a variety of use cases — from brand protection to VIP monitoring or gaining situational awareness and performing narrative analysis.</p>
+<p>The main use cases include:</p>
+<ul class="simple">
+<li><p>Retrieving posts, replies, and comments from specific accounts</p></li>
+<li><p>Gathering posts by keyword or hashtag</p></li>
+<li><p>Collecting posts from a particular region or specified geolocation</p></li>
+</ul>
+<p>If you need to speed up your post analysis, Social Links API can be especially useful: it allows you to obtain posts from all major social media platforms using all the methods mentioned above. With fast access to data, you can analyze related posts, detect trends and anomalies, and automate content gathering to gain real-time insights into public opinion, possible risks, or evolving narratives.</p>
+<p>Additionally, SL API supports content preprocessing functions with LLMs, such as topic and sentiment extraction, translation, and summarization, which are highly useful for identifying and prioritizing issues to explore.</p>
+<img alt="_images/usecase2.png" src="_images/usecase2.png" />
+<p>See the source code of the script in the <a class="reference external" href="https://github.com/SocialLinks-IO/sociallinks-api?tab=readme-ov-file#analyze-social-media-posts">GitHub repository</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="methods-examples.html" class="btn btn-neutral float-left" title="Methods Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Social Links.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
