@@ -1,0 +1,251 @@
+.. _usage_of_parameters:
+
+Usage of Parameters
+===================
+
+On this page, you can learn more about some of the query string parameters. If you still have any questions, contact us: `support@sociallinks.io <mailto:support@sociallinks.io>`_
+
+query
+-----
+
+Parameter `query` is the main request input for API endpoints which depends on the path parameters. For example, `query` in `/twitter_v2/user/following` would contain Twitter profile ID or alias to get its followees and `query` in `/maigret_search` would contain alias to search profile on about 3000 websites:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/twitter_v2/user/following?query={...}' --header 'Authorization: {API Key}'
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/maigret_search?query={...}' --header 'Authorization: {API Key}'
+
+Also, there are some API methods that use other parameters to run. These are ‘advanced’ search methods that require more than one input parameter. For example, to use a method which searches Twitter posts you can use different parameters as input data such as `query`, `exact_phrase`, `hashtags`, `lang`, `from_accounts`, `to_accounts`, `mentioning_accounts`, etc:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/twitter_v2/search/tweets?query={...}&exact_phrase={...}&hashtags={...}&lang={...}&from_accounts={...}&to_accounts={...}&mentioning_accounts={...}&min_replies={...}&min_faves={...}&min_retweets={...}&filter_replies={...}&filter_links={...}&from_date={...}&to_date={...}&lat={...}&lng={...}&radius={...}&ignore_words={...}' --header 'Authorization: {API Key}'
+
+If the `query` parameter is left empty, the response will contain a message with error status.
+
+limit
+-----
+
+.. note::
+   - Type: int
+   - Range: >0
+   - Default: 12
+   - Required: No
+
+You should use the parameter `limit` to specify the upper limit of entities’ count that will return in your response. It helps to optimize work with methods with many results. For example, the response for the following request will contain up to 12 reposters of the post:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/twitter_v2/tweet/retweeters?query=1655981859447111701&limit=12' --header 'Authorization: {API Key}'
+
+Order of entities in this limited piece of response will be equal to its order in data source layout/API.
+
+timeout
+-------
+
+.. note::
+   - Type: int
+   - Range: 0-300
+   - Default: 70-115
+   - Required: No
+
+The parameter `timeout` helps you to limit the time of query execution. For example, the following request of getting subscriptions by profile will be executed for no more than 100 seconds:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/twitter_v2/user/subscriptions?query=MrBeast&timeout=100' --header 'Authorization: {API Key}'
+
+If `timeout=0`, it will work no more than 300 seconds. We do not support `timeout` value more than 300 seconds.
+
+If there is not enough time to execute the request, the `delayed` parameter is automatically used. In this case, the `timeout` parameter limits the time for returning a response with the `task_id` parameter.
+
+Contact our support for details about the time required for the method you are interested in: `support@sociallinks.io <mailto:support@sociallinks.io>`_
+
+Delayed methods
+---------------
+
+delayed
+~~~~~~~
+
+.. note::
+   - Type: str
+   - Range: 0/1
+   - Default: 0
+   - Required: No
+   
+The `delayed` parameter helps you to delay the result if the request takes too long to execute.
+
+If the `delayed` parameter is set to `0` (set by default) and the result can be returned within the set `timeout` parameter (up to 300 seconds), the method will respond in a **synchronous way**, i.e., the response will instantly contain the result.
+
+However, some data source operations are time-consuming. Therefore, many of our API methods support **asynchronous execution** to get results if the result cannot be returned within the set `timeout` parameter. This means that the result will not be returned instantly, as it takes time to process the request. The instant response of such a method will contain the `task_id` parameter. 
+
+If you know in advance that the request will take longer than the `timeout` limit, make the method asynchronous by setting the `delayed` parameter to `1`. The time to get the `task_id` parameter is limited by the `timeout` parameter.
+
+For some methods that take longer than the `timeout` parameter and do not contain the `delayed=1` parameter or contain the `delayed=0` parameter, the response will contain the following error:
+
+.. code-block:: text
+
+   "error": "Unknown error, please contact support@sociallinks.io"
+
+For the method to work correctly, the `delayed=1` parameter must be added to the request.
+
+task_id
+~~~~~~~
+
+.. note::
+   - Type: str
+   - Range: -
+   - Default: -
+   - Required: No
+
+The `task_id` parameter is a task identifier, which, in case of asynchronous work of the method, will help you to check the status of the request execution or its result.
+
+To get the status of task execution you should execute the `/delayed/task_status` method:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/delayed/task_status?task_id={...}' --header 'Authorization: {API Key}'
+
+The request execution status can take the values ==???== in case the request is still being processed and `SUCCESS` if the request is successful and the result is ready to be returned.
+
+To get the result of the method, you must use the same method, only using the `task_id` parameter that was returned in the instant response. For example, use the Twitter method to get reposters by post in an asynchronous way by setting the `delayed` parameter to `1`:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/twitter_v2/tweet/retweeters?query={...}&delayed=1' --header '{Your API Key}'
+
+The instant response would contain the `task_id`. After the task is executed, we get the result using the same method using the returned `task_id`:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/twitter_v2/tweet/retweeters?task_id={...}' --header '{Your API Key}'
+
+We keep results for every asynchronous execution only for 24 hours (1 day).
+
+task_timeout
+~~~~~~~~~~~~
+
+.. note::
+   - Type: int
+   - Range: 0-3600
+   - Default: -
+   - Required: No
+
+The `task_timeout` parameter helps you to limit the execution time of an asynchronous request. For example, to execute the following asynchronous Twitter method for getting reposters by post, the endpoint will run for no more than 3000 seconds:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/twitter_v2/tweet/retweeters?query={...}&delayed=1&task_timeout=3000' --header '{Your API Key}'
+
+We do not support `task_timeout` value more than 3600 seconds (1 hour).
+
+Usage and cost control
+----------------------
+
+Using the method `/stats` you can get information about your API key:
+
+.. code-block:: bash
+
+   curl 'https://{DOMAIN}/stats' --header '{Your API Key}'
+
+The result in the response will contain:
+- Expiration date
+- Available points (Balance)
+- Rate limits (if applicable)
+- Plan
+
+Other parameters
+----------------
+
+Other parameters are summarized below with a brief description of their characteristics:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Parameter
+     - Type
+     - Format
+     - Range
+     - Default
+     - Required
+     - Note
+   * - lat
+     - str
+     - 
+     - 
+     - 
+     - Depends on the endpoint
+     - latitude
+   * - lng
+     - str
+     - 
+     - 
+     - 
+     - Depends on the endpoint
+     - longitude
+   * - distance/radius
+     - int
+     - 
+     - 
+     - 1000
+     - No
+     - is used together with lat and long and indicates the distance from the point to search for
+   * - location
+     - str
+     - 
+     - 
+     - 
+     - No
+     - name of a location
+   * - exact
+     - int
+     - 
+     - 0/1
+     - 0
+     - No
+     - for exact search, 0 - search, 1 - exact search
+   * - type
+     - str
+     - 
+     - 
+     - 
+     - Depends on the endpoint
+     - type of query
+   * - api_key
+     - str
+     - 
+     - 
+     - 
+     - Yes
+     - needed to work with third-party services
+   * - sort
+     - str
+     - 
+     - 
+     - 
+     - No
+     - type of sorting
+   * - date_from
+     - str
+     - \y\y\y\y\-\m\m-\d\d
+     - 
+     - 
+     - No
+     - from which date we're searching
+   * - date_to
+     - str
+     - \y\y\y\y\-\m\m-\d\d
+     - 
+     - 
+     - No
+     - until which date we're searching
+
+Troubleshooting
+---------------
+
+If you notice any problems with the methods, please write to our support: :ref:`support-page-anchor`.
+
+All incidents can be tracked on a dedicated web page, where you can also subscribe to updates to track the troubleshooting process.
