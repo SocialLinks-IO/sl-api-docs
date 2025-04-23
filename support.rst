@@ -3,7 +3,7 @@
 SUPPORT
 =======
 
-If you have studied the documentation and would like a trial access and the full list of methods, leave a request on our `website <https://sociallinks.io/products/sl-api>`_ with a comment:
+If you have studied the documentation and would like a trial access and the full list of methods, leave a request on our `website <https://sociallinks.io/products/sl-api?utm_source=api_documentation>`_ with a comment:
 
 .. code-block:: text
     
